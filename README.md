@@ -1,4 +1,10 @@
 # cs224u
+
+# RESOURCES
+
+
+## Project guidelines(contains project examples):        https://github.com/cgpotts/cs224u/blob/master/projects.md
+
 ## datasets:
  ### covid19:
   https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge
