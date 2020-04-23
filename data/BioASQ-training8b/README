@@ -1,0 +1,49 @@
+== Data purpose ==
+
+The data are intended to be used as training and development data for BioASQ 8, which will take place during 2020.
+There is one file containing the data:
+ - training8b.json
+
+
+The file contains the data of the first seven editions of the challenge: 3243 questions [1] with their relevant documents, snippets, concepts and RDF triples, exact and ideal answers.
+For more information about the format of the data as well as the instructions for participating at BioASQ please consult: http://participants-area.bioasq.org/general_information/Task8b/
+
+Differences with BioASQ-training7b.json 
+	- 500 new questions added from BioASQ7
+	- 4 questions were removed
+		- The question with id 5717fb557de986d80d000009 had identical body with 571e06447de986d80d000016. All relevant elements from both questions are available in the merged question with id 571e06447de986d80d000016.
+		- The question with id 5c589ddb86df2b917400000b had identical body with 5c6b7a9e7c78d69471000029. All relevant elements from both questions are available in the merged question with id 5c6b7a9e7c78d69471000029.
+		- The question with id 52ffb5d12059c6d71c00007c had identical body with 52e7870a98d023950500001a. All relevant elements from both questions are available in the merged question with id 52e7870a98d023950500001a.
+		- The question with id 53359338d6d3ac6a3400004f had identical body with 589a246878275d0c4a000030. All relevant elements from both questions are available in the merged question with id 589a246878275d0c4a000030.
+
+
+**** UPDATE 25/02/2020 *****
+The previous version of the dataset contained an inconsistency on question with id "5c9904eaecadf2e73f00002e", where the "ideal_answer" field was missing. This has been fixed.
+
+
+
+
+
+
+		
+== Citing BioASQ ==
+When using this data please cite our previous work:
+
+An overview of the BIOASQ large-scale biomedical semantic indexing and question answering competition: George Tsatsaronis, Georgios Balikas, Prodromos Malakasiotis, Ioannis Partalas, Matthias Zschunke, Michael R Alvers, Dirk Weissenborn, Anastasia Krithara, Sergios Petridis, Dimitris Polychronopoulos, Yannis Almirantis, John Pavlopoulos, Nicolas Baskiotis, Patrick Gallinari, Thierry Artiéres, Axel Ngonga, Norman Heino, Eric Gaussier, Liliana Barrio-Alvers, Michael Schroeder, Ion Androutsopoulos and Georgios Paliouras, in BMC bioinformatics, 2015
+
+Bib:
+@article{tsatsaronis2015overview,
+  title={An overview of the BIOASQ large-scale biomedical semantic indexing and question answering competition},
+  author={Tsatsaronis, George and Balikas, Georgios and Malakasiotis, Prodromos and Partalas, Ioannis and Zschunke, Matthias and Alvers, Michael R and Weissenborn, Dirk and Krithara, Anastasia and Petridis, Sergios and Polychronopoulos, Dimitris and others},
+  journal={BMC bioinformatics},
+  volume={16},
+  number={1},
+  pages={138},
+  year={2015},
+  publisher={BioMed Central Ltd}
+}
+
+
+Fore more information about the challenge, the organisers and the relevant publications please visit: http://bioasq.org/
+
+[1] The distribution of 2747 questions : 941 factoid, 881 yesno, 777 summary, 644 list
