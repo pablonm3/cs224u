@@ -13,3 +13,12 @@
   - SQUAD dataset: 
     - Paper https://arxiv.org/pdf/1806.03822.pdf
     - Github page: https://rajpurkar.github.io/SQuAD-explorer/
+
+
+
+    # instructions:
+    after cloning the repo:
+    1) install hugging face library
+    2) import conda environment from environment environment.yml and activate it
+    
+
