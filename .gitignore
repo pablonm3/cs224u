@@ -1,2 +1,4 @@
 transformers/
 cache*
+model/scibert_scivocab_uncased/pytorch_model.bin
+model/scibert_scivocab_uncased/.DS_Store
