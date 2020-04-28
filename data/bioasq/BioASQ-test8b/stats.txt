@@ -1,1 +1,4 @@
 testset1 stats : Counter({'instanceCount': 384, 'numQuestions': 100, 'answerTitle': 67, 'beginEndDiff': 0, 'badOffsets':9}) 
+testset2 stats : Counter({'instanceCount': 424, 'numQuestions': 100, 'answerTitle': 69, 'beginEndDiff': 0, 'badOffsets': 9, 'otherExtractionFailures': 0})
+testset3 stats : Counter({'instanceCount': 372, 'numQuestions': 100, 'answerTitle': 92, 'badOffsets': 7, 'beginEndDiff': 0, 'otherExtractionFailures': 0})
+testset3 stats : Counter({'instanceCount': 354, 'numQuestions': 100, 'answerTitle': 77, 'badOffsets': 7, 'beginEndDiff': 0, 'otherExtractionFailures': 0})
