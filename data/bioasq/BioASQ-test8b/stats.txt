@@ -7,3 +7,7 @@ testset4 factoid only stats: Counter({'instanceCount': 118, 'numQuestions': 100,
 testset3 factoid only stats: Counter({'instanceCount': 113, 'numQuestions': 100, 'sectionIsTitle': 35, 'otherExtractionFailures': 2, 'requestTimeout': 2, 'badOffsets': 1, 'beginEndDiff': 0})
 testset2 factoid only stats: Counter({'instanceCount': 105, 'numQuestions': 100, 'sectionIsTitle': 12, 'badOffsets': 3, 'beginEndDiff': 0, 'otherExtractionFailures': 0})
 testset1 factoid only stats: Counter({'instanceCount': 119, 'numQuestions': 100, 'sectionIsTitle': 24, 'badOffsets': 3, 'otherExtractionFailures': 3, 'requestTimeout': 3, 'beginEndDiff': 0})
+
+
+
+trainset factoid only status : Counter({'instanceCount': 7472, 'numQuestions': 3243, 'badOffsets': 2523, 'sectionIsTitle': 1457, 'otherExtractionFailures': 181, 'requestTimeout': 174, 'beginEndDiff': 0}) for final file:  /data/home/xcs224u_student/cs224_final_proj/cs224u/data/bioasq/BioASQ-training8b/training8b_squad_format_factoid.json
