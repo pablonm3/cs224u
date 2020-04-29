@@ -1,4 +1,9 @@
 testset1 stats : Counter({'instanceCount': 384, 'numQuestions': 100, 'answerTitle': 67, 'beginEndDiff': 0, 'badOffsets':9}) 
 testset2 stats : Counter({'instanceCount': 424, 'numQuestions': 100, 'answerTitle': 69, 'beginEndDiff': 0, 'badOffsets': 9, 'otherExtractionFailures': 0})
 testset3 stats : Counter({'instanceCount': 372, 'numQuestions': 100, 'answerTitle': 92, 'badOffsets': 7, 'beginEndDiff': 0, 'otherExtractionFailures': 0})
-testset3 stats : Counter({'instanceCount': 354, 'numQuestions': 100, 'answerTitle': 77, 'badOffsets': 7, 'beginEndDiff': 0, 'otherExtractionFailures': 0})
+testset4 stats : Counter({'instanceCount': 354, 'numQuestions': 100, 'answerTitle': 77, 'badOffsets': 7, 'beginEndDiff': 0, 'otherExtractionFailures': 0})
+
+testset4 factoid only stats: Counter({'instanceCount': 118, 'numQuestions': 100, 'sectionIsTitle': 24, 'badOffsets': 4, 'beginEndDiff': 0, 'otherExtractionFailures': 0})
+testset3 factoid only stats: Counter({'instanceCount': 113, 'numQuestions': 100, 'sectionIsTitle': 35, 'otherExtractionFailures': 2, 'requestTimeout': 2, 'badOffsets': 1, 'beginEndDiff': 0})
+testset2 factoid only stats: Counter({'instanceCount': 105, 'numQuestions': 100, 'sectionIsTitle': 12, 'badOffsets': 3, 'beginEndDiff': 0, 'otherExtractionFailures': 0})
+testset1 factoid only stats: Counter({'instanceCount': 119, 'numQuestions': 100, 'sectionIsTitle': 24, 'badOffsets': 3, 'otherExtractionFailures': 3, 'requestTimeout': 3, 'beginEndDiff': 0})
