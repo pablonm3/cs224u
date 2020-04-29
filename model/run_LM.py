@@ -9,11 +9,11 @@ export BASE_MODEL=allenai/scibert_scivocab_uncased
 export OUTPUT_MODEL=/pretrain/output_models
 
 python run_language_modeling.py
-	--output_dir ./pretrain/proc_dataset.txt \
-	--train_data_file ./temp_model \
+	--output_dir $OUTPUT_MODEL \
+	--train_data_file ./pretrain/proc_dataset.txt \
 	--model_type bert \
 	--model_name_or_path $BASE_MODEL \
-	--mlm \ #need change 
+	--mlm
 	--config_name ./pretrain \
 	--tokenizer_name ./pretrain \
 	--do_train \
