@@ -43,7 +43,15 @@ class BioAsqToSquad2(object):
             squad_data_instance = {}
             
             # we can later think of combining all list , factoid, yes no question types in title i.e. have one title for all questions of type factoid and so on
-            squad_data_instance['title'] = bioasq_question['type']  
+            squad_data_instance['title'] = bioasq_question['type']
+
+            # only processes factorid questions 
+            if squad_data_instance['title'] != 'factoid':
+                continue
+            else:
+                print("processing factoid question num: ", num_bioasq_questions)
+                print(self.counters)
+
             squad_data_instance['paragraphs'] = [] 
             
             bioasq_question_id = bioasq_question['id'] 
@@ -189,11 +197,11 @@ class BioAsqToSquad2(object):
 if __name__ == '__main__':
    
     base_path = Path(__file__).parent
-    #in_file_path = (base_path / "./bioasq/BioASQ-test8b/BioASQ-task8bPhaseB-testset4.json").resolve()
-    #out_file_path = (base_path/ "./bioasq/BioASQ-test8b/BioASQ-task8bPhaseB-testset4_squad_format.json").resolve()
+    #in_file_path = (base_path / "./bioasq/BioASQ-test8b/BioASQ-task8bPhaseB-testset1.json").resolve()
+    #out_file_path = (base_path/ "./bioasq/BioASQ-test8b/BioASQ-task8bPhaseB-testset1_squad_format_only_factoid.json").resolve()
 
     in_file_path = (base_path / "./bioasq/BioASQ-training8b/training8b.json").resolve()
-    out_file_path = (base_path/ "./bioasq/BioASQ-training8b/training8b_squad_format.json").resolve()
+    out_file_path = (base_path/ "./bioasq/BioASQ-training8b/training8b_squad_format_factoid.json").resolve()
     cbs = BioAsqToSquad2(in_file_path,out_file_path)
     cbs.transform_json()
 
