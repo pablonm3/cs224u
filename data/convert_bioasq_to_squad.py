@@ -12,7 +12,7 @@ class BioAsqToSquad2(object):
 
         self.input_file = input_file
         self.output_file = output_file
-        self.counters = collections.Counter(beginEndDiff=0,answerTitle=0,instanceCount=0, numQuestions=0, badOffsets=0, otherExtractionFailures=0)
+        self.counters = collections.Counter(beginEndDiff=0,sectionIsTitle=0,instanceCount=0, numQuestions=0, badOffsets=0, otherExtractionFailures=0)
         self.answer_not_found = 0
 
         with open(self.input_file, "r") as reader:
@@ -35,8 +35,13 @@ class BioAsqToSquad2(object):
             
             num_bioasq_questions += 1 
             self.counters.update({'numQuestions':1})
+            
+            #if(num_bioasq_questions <=2400):
+                #print("skipping question:",num_bioasq_questions)
+                #continue
+                  
             squad_data_instance = {}
-
+            
             # we can later think of combining all list , factoid, yes no question types in title i.e. have one title for all questions of type factoid and so on
             squad_data_instance['title'] = bioasq_question['type']  
             squad_data_instance['paragraphs'] = [] 
@@ -76,7 +81,7 @@ class BioAsqToSquad2(object):
 
                 elif bioasq_begin_section != "abstract" and bioasq_begin_section != "sections.0" :
 
-                    self.counters.update({'answerTitle':1})
+                    self.counters.update({'sectionIsTitle':1})
                     #print('begin section is not abstract: ', self.counters, "its: ", bioasq_begin_section)
 
                     # begin and end section is either abstract or sections.0 (abstract and sections.0 is the same thing) or title, it can't be anything else
@@ -101,11 +106,12 @@ class BioAsqToSquad2(object):
                 #squad_paragraph_dict['context'] = document 
                 bioasq_context = self.getAbstractFromUrl(document)
                 if(bioasq_context == ""):
-                    #print("unable to extract context from: ", document)
+                    print("unable to extract context from: ", document)
                     #print("extracted answer: ", bioasq_context)
                     #print("actual answer: ", bioasq_text)
                     #print("begin section: ", bioasq_begin_section)
                     self.counters.update({'otherExtractionFailures':1})
+                    print("curr counters: ",self.counters) 
                     continue
                 test_start = bioasq_answer_start
                 test_end = test_start + len(bioasq_text) -1 
@@ -114,11 +120,12 @@ class BioAsqToSquad2(object):
                 # validate that the extracted answer (from url) matches the provided answer
                 # if answers dont match (bad offsets) ignore this instance
                 if answer!=bioasq_text:
-                    #print("incorrect offset provided for document url", document)
+                    print("incorrect offset provided for document url", document)
                     #print("extracted answer: ", answer)
                     #print("actual answer: ", bioasq_text)
                     #print("begin section: ", bioasq_begin_section)
                     self.counters.update({'badOffsets':1})
+                    print("curr counters: ",self.counters)
                     continue
 
                 squad_paragraph_dict['context'] = bioasq_context
@@ -126,13 +133,13 @@ class BioAsqToSquad2(object):
                 self.counters.update({'instanceCount':1})
 
             json_data['data'].append(squad_data_instance)
-            if num_bioasq_questions % 100 == 0:
+            if num_bioasq_questions % 300 == 0:
                 new_file = str(self.output_file) + str(num_bioasq_questions)
                 with open(new_file, 'w', encoding='utf-8') as writer:
                     json.dump(json_data, writer , sort_keys=False, ensure_ascii=False)
-                print(self.counters, "for file: ", new_file)
+                print("curr counters: ", self.counters, "flushed json to file: ", new_file)
 
-                time.sleep(10)
+                time.sleep(5)
                 json_data = {} 
 
                 # bioasq 8 contains all question in previous version + new questions + some questions that were removed
@@ -152,7 +159,7 @@ class BioAsqToSquad2(object):
         # add delay between page download requests
         time.sleep(0.7)
         try:
-            res = requests.get(abstractUrl)
+            res = requests.get(abstractUrl, timeout=3)
         except:
             self.counters.update({'requestTimeout':1})
             print("timed out for url: ", abstractUrl)
