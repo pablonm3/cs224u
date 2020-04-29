@@ -1,10 +1,3 @@
-# as we agreed, we will be using 
-# 1. Bert as model_type 
-# 2. use to trained on scibert 
-# 3. use model config setting from the original scibert model 
-# 4. use the original vocab.txt from scibert  with 31116 tokens 
-
-
 export BASE_MODEL=allenai/scibert_scivocab_uncased
 export OUTPUT_MODEL=./pretrain/output_models
 
