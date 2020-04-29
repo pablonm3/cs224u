@@ -13,7 +13,7 @@ python run_language_modeling.py
 	--train_data_file ./pretrain/proc_dataset.txt \
 	--model_type bert \
 	--model_name_or_path $BASE_MODEL \
-	--mlm
+	--mlm \ 
 	--config_name ./pretrain \
 	--tokenizer_name ./pretrain \
 	--do_train \
