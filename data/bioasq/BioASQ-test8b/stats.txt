@@ -2,7 +2,9 @@ testset1 stats : Counter({'instanceCount': 384, 'numQuestions': 100, 'answerTitl
 testset2 stats : Counter({'instanceCount': 424, 'numQuestions': 100, 'answerTitle': 69, 'beginEndDiff': 0, 'badOffsets': 9, 'otherExtractionFailures': 0})
 testset3 stats : Counter({'instanceCount': 372, 'numQuestions': 100, 'answerTitle': 92, 'badOffsets': 7, 'beginEndDiff': 0, 'otherExtractionFailures': 0})
 testset4 stats : Counter({'instanceCount': 354, 'numQuestions': 100, 'answerTitle': 77, 'badOffsets': 7, 'beginEndDiff': 0, 'otherExtractionFailures': 0})
+testset5 stats : Counter({'instanceCount': 273, 'numQuestions': 100, 'sectionIsTitle': 39, 'badOffsets': 7, 'otherExtractionFailures': 1, 'beginEndDiff': 0})
 
+testset5 factoid only stats: Counter({'numQuestions': 100, 'instanceCount': 70, 'sectionIsTitle': 16, 'badOffsets': 1, 'otherExtractionFailures': 1, 'beginEndDiff': 0})
 testset4 factoid only stats: Counter({'instanceCount': 118, 'numQuestions': 100, 'sectionIsTitle': 24, 'badOffsets': 4, 'beginEndDiff': 0, 'otherExtractionFailures': 0})
 testset3 factoid only stats: Counter({'instanceCount': 113, 'numQuestions': 100, 'sectionIsTitle': 35, 'otherExtractionFailures': 2, 'requestTimeout': 2, 'badOffsets': 1, 'beginEndDiff': 0})
 testset2 factoid only stats: Counter({'instanceCount': 105, 'numQuestions': 100, 'sectionIsTitle': 12, 'badOffsets': 3, 'beginEndDiff': 0, 'otherExtractionFailures': 0})
@@ -12,17 +14,20 @@ yes no test set 1 --> Counter({'numQuestions': 100, 'instanceCount': 77, 'sectio
 yes no test set 2 --> Counter({'instanceCount': 144, 'numQuestions': 100, 'sectionIsTitle': 37, 'badOffsets': 6, 'otherExtractionFailures': 2, 'requestTimeout': 2, 'beginEndDiff': 0})
 yes not test set 3 ---> Counter({'instanceCount': 106, 'numQuestions': 100, 'sectionIsTitle': 25, 'badOffsets': 4, 'otherExtractionFailures': 1, 'requestTimeout': 1, 'beginEndDiff': 0})
 yes no test set 4 --> Counter({'numQuestions': 100, 'instanceCount': 65, 'sectionIsTitle': 17, 'beginEndDiff': 0, 'badOffsets': 0, 'otherExtractionFailures': 0})
+yes no test set 5 --> Counter({'instanceCount': 105, 'numQuestions': 100, 'sectionIsTitle': 12, 'badOffsets': 2, 'beginEndDiff': 0, 'otherExtractionFailures': 0})
 
 summary tests set 1 ---> Counter({'numQuestions': 100, 'instanceCount': 72, 'sectionIsTitle': 10, 'badOffsets': 2, 'beginEndDiff': 0, 'otherExtractionFailures': 0})
 summary tests set 2 --> Counter({'instanceCount': 110, 'numQuestions': 100, 'sectionIsTitle': 15, 'badOffsets': 2, 'beginEndDiff': 0, 'otherExtractionFailures': 0})
 summary tests set 3 --> Counter({'instanceCount': 114, 'numQuestions': 100, 'sectionIsTitle': 28, 'badOffsets': 2, 'beginEndDiff': 0, 'otherExtractionFailures': 0})
 summary tests set 4 --> Counter({'numQuestions': 100, 'instanceCount': 98, 'sectionIsTitle': 21, 'badOffsets': 2, 'otherExtractionFailures': 1, 'requestTimeout': 1, 'beginEndDiff': 0})
+summary tests set 5 -->  Counter({'numQuestions': 100, 'instanceCount': 59, 'sectionIsTitle': 6, 'badOffsets': 2, 'beginEndDiff': 0, 'otherExtractionFailures': 0})
 
 
 list test set 1 --> Counter({'instanceCount': 102, 'numQuestions': 100, 'sectionIsTitle': 15, 'badOffsets': 1, 'otherExtractionFailures': 1, 'requestTimeout': 1, 'beginEndDiff': 0})
 list test set 2 --> Counter({'numQuestions': 100, 'instanceCount': 63, 'sectionIsTitle': 5, 'badOffsets': 1, 'beginEndDiff': 0, 'otherExtractionFailures': 0})
 list test set 3 ---> Counter({'numQuestions': 100, 'instanceCount': 36, 'sectionIsTitle': 4, 'beginEndDiff': 0, 'badOffsets': 0, 'otherExtractionFailures': 0})
 list test set 4 --> Counter({'numQuestions': 100, 'instanceCount': 72, 'sectionIsTitle': 15, 'badOffsets': 1, 'beginEndDiff': 0, 'otherExtractionFailures': 0})
+list test set 5 --> Counter({'numQuestions': 100, 'instanceCount': 39, 'sectionIsTitle': 5, 'badOffsets': 2, 'beginEndDiff': 0, 'otherExtractionFailures': 0})
 
 
 trainset factoid only status : Counter({'instanceCount': 7472, 'numQuestions': 3243, 'badOffsets': 2523, 'sectionIsTitle': 1457, 'otherExtractionFailures': 181, 'requestTimeout': 174, 'beginEndDiff': 0}) for final file:  /data/home/xcs224u_student/cs224_final_proj/cs224u/data/bioasq/BioASQ-training8b/training8b_squad_format_factoid.json
