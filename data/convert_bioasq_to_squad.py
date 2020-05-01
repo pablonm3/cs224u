@@ -13,8 +13,7 @@ class BioAsqToSquad2(object):
         self.input_file = input_file
         self.output_file = output_file
         self.counters = collections.Counter(beginEndDiff=0,sectionIsTitle=0,instanceCount=0, numQuestions=0, badOffsets=0, otherExtractionFailures=0)
-        self.answer_not_found = 0
-
+        
         with open(self.input_file, "r") as reader:
 
             # deserialize into python object aka decoding
@@ -36,6 +35,7 @@ class BioAsqToSquad2(object):
             num_bioasq_questions += 1 
             self.counters.update({'numQuestions':1})
             
+            # uncomment to skip processing for n questions
             #if(num_bioasq_questions <=2400):
                 #print("skipping question:",num_bioasq_questions)
                 #continue
@@ -45,12 +45,12 @@ class BioAsqToSquad2(object):
             # we can later think of combining all list , factoid, yes no question types in title i.e. have one title for all questions of type factoid and so on
             squad_data_instance['title'] = bioasq_question['type']
 
-            # only processes factorid questions 
-            if squad_data_instance['title'] != 'factoid':
-                continue
-            else:
-                print("processing factoid question num: ", num_bioasq_questions)
-                print(self.counters)
+            # uncomment if you only want to processes factoid questions 
+            #if squad_data_instance['title'] != 'factoid':
+            #    continue
+            #else:
+            #    print("processing factoid question num: ", num_bioasq_questions)
+            #    print(self.counters)
 
             squad_data_instance['paragraphs'] = [] 
             
@@ -111,7 +111,6 @@ class BioAsqToSquad2(object):
                     
                 squad_paragraph_dict['qas'].append(squad_qasi_dict)
                 
-                #squad_paragraph_dict['context'] = document 
                 bioasq_context = self.getAbstractFromUrl(document)
                 if(bioasq_context == ""):
                     print("unable to extract context from: ", document)
@@ -167,7 +166,7 @@ class BioAsqToSquad2(object):
         # add delay between page download requests
         time.sleep(0.7)
         try:
-            res = requests.get(abstractUrl, timeout=3)
+            res = requests.get(abstractUrl, timeout=7)
         except:
             self.counters.update({'requestTimeout':1})
             print("timed out for url: ", abstractUrl)
@@ -197,11 +196,11 @@ class BioAsqToSquad2(object):
 if __name__ == '__main__':
    
     base_path = Path(__file__).parent
-    #in_file_path = (base_path / "./bioasq/BioASQ-test8b/BioASQ-task8bPhaseB-testset1.json").resolve()
-    #out_file_path = (base_path/ "./bioasq/BioASQ-test8b/BioASQ-task8bPhaseB-testset1_squad_format_only_factoid.json").resolve()
+    in_file_path = (base_path / "./bioasq/BioASQ-test8b/BioASQ-task8bPhaseB-testset5.json").resolve()
+    out_file_path = (base_path/ "./bioasq/BioASQ-test8b/BioASQ-task8bPhaseB-testset5_squad_format.json").resolve()
 
-    in_file_path = (base_path / "./bioasq/BioASQ-training8b/training8b.json").resolve()
-    out_file_path = (base_path/ "./bioasq/BioASQ-training8b/training8b_squad_format_factoid.json").resolve()
+    #in_file_path = (base_path / "./bioasq/BioASQ-training8b/training8b.json").resolve()
+    #out_file_path = (base_path/ "./bioasq/BioASQ-training8b/training8b_squad_format_factoid.json").resolve()
     cbs = BioAsqToSquad2(in_file_path,out_file_path)
     cbs.transform_json()
 
