@@ -678,7 +678,7 @@ def main(model_path_str,my_output_dir, train_file, predict_file):
     
     
     #args = parser.parse_args()
-    args = parser.parse_args(["--version_2_with_negative", "--model_type=bert","--model_name_or_path",model_path_str,"--output_dir",my_output_dir,"--do_eval", "--do_lower_case","--train_file", train_file, "--predict_file", predict_file, "--per_gpu_train_batch_size=8", "--per_gpu_eval_batch_size=64","--learning_rate=3e-5", "--num_train_epochs=3.0","--max_seq_length=384", "--doc_stride=128","--save_steps=2000","--threads=16","--warmup_steps=550","--gradient_accumulation_steps=1","--logging_steps=50","--do_train"])
+    args = parser.parse_args(["--version_2_with_negative", "--model_type=bert","--model_name_or_path",model_path_str,"--output_dir",my_output_dir,"--do_eval", "--do_lower_case","--train_file", train_file, "--predict_file", predict_file, "--per_gpu_train_batch_size=4", "--per_gpu_eval_batch_size=64","--learning_rate=3e-5", "--num_train_epochs=3.0","--max_seq_length=384", "--doc_stride=128","--save_steps=2000","--threads=4","--warmup_steps=550","--gradient_accumulation_steps=1","--logging_steps=50","--max_answer_length=128","--do_train"])
     logger.warning(vars(args))
     #args.fp16 = False
 
