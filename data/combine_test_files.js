@@ -1,13 +1,23 @@
+
+
 const fs = require('fs');
-const DATA_DIR = '/Users/pablo/Desktop/jupyter_notebooks/stanford_NLU/cs224u/data/bioasq/BioASQ-test8b'; 
+console.log("test")
+//const DATA_DIR = '/Users/pablo/Desktop/jupyter_notebooks/stanford_NLU/cs224u/data/bioasq/BioASQ-test8b'; 
+const DATA_DIR = 'D:\\stanford_courses\\nlu-all\\final_project\\cs224u\\dev_notebook\\finetune\\bioasq_data\\train';
 const filesPaths = [
-    DATA_DIR + '/BioASQ-task8bPhaseB-testset1_squad_format.json',
-    DATA_DIR + '/BioASQ-task8bPhaseB-testset2_squad_format.json',
-    DATA_DIR + '/BioASQ-task8bPhaseB-testset3_squad_format.json',
-    DATA_DIR + '/BioASQ-task8bPhaseB-testset4_squad_format.json',
-    DATA_DIR + '/BioASQ-task8bPhaseB-testset5_squad_format.json',
+    DATA_DIR + '\\training8b_squad_format_300.json',
+    DATA_DIR + '\\training8b_squad_format_600.json',
+    DATA_DIR + '\\training8b_squad_format_900.json',
+    DATA_DIR + '\\training8b_squad_format_1200.json',
+    DATA_DIR + '\\training8b_squad_format_1500.json',
+    DATA_DIR + '\\training8b_squad_format_1800.json',
+    DATA_DIR + '\\training8b_squad_format_2100.json',
+    DATA_DIR + '\\training8b_squad_format_2400.json',
+    DATA_DIR + '\\training8b_squad_format_2700.json',
+    DATA_DIR + '\\training8b_squad_format_3000.json',
+    DATA_DIR + '\\training8b_squad_format_3243.json',
 ];
-const outputFilename = DATA_DIR + '/BioASQ-task8bPhaseB-testset_combined_squad_format.json'
+const outputFilename = DATA_DIR + '\\trainset_combined_squad_format.json'
 
 // let datasets = [
 //   {
@@ -137,6 +147,7 @@ const outputFilename = DATA_DIR + '/BioASQ-task8bPhaseB-testset_combined_squad_f
 // ];
 // datasets = datasets.concat(datasets)
 let datasets = filesPaths.map((filePath) => require(filePath));
+//console.log(datasets)
 
 let newDataset = datasets.reduce((result, dataset) => {
   console.log('processing dataset length: ', dataset.data.length);
@@ -161,3 +172,4 @@ fs.writeFile(outputFilename, jsonContent, 'utf8', function (err) {
     }
     console.log("JSON file has been saved.");
 });
+
